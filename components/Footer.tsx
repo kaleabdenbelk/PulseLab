@@ -1,4 +1,7 @@
 "use client"
+
+import Image from "next/image";
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -12,32 +15,7 @@ export function Footer() {
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="relative flex items-center justify-center w-7 h-7">
-            <span
-              className="absolute w-7 h-7 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(0,232,122,0.25) 0%, transparent 70%)",
-                animation: "pulse-ring 2.5s cubic-bezier(0.4,0,0.6,1) infinite",
-              }}
-            />
-            <span
-              className="w-2.5 h-2.5 rounded-full block"
-              style={{ background: "#00E87A" }}
-            />
-          </div>
-          <span
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontWeight: 700,
-              fontSize: "1rem",
-              color: "#ffffff",
-            }}
-          >
-            Pulse<span style={{ color: "#00E87A" }}>Lab</span>
-          </span>
-        </div>
+        <Image width={100} height={100} src="/logo.png" alt="Logo" />
 
         {/* Links */}
         <div className="flex items-center gap-6 flex-wrap justify-center">

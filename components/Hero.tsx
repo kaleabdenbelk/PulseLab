@@ -70,7 +70,6 @@ export function Hero() {
             transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1) 100ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) 100ms",
           }}
         >
-          <Zap size={12} style={{ color: "#00E87A" }} />
           <span
             className="text-xs"
             style={{
@@ -81,7 +80,7 @@ export function Hero() {
               textTransform: "uppercase",
             }}
           >
-            Technical Growth Partner for SaaS
+            Growth Partner
           </span>
         </div>
 

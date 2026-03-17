@@ -29,23 +29,29 @@ export function GlobalStyles() {
       }
 
       @keyframes pulse-dot {
-        0%, 100% {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      @keyframes modal-slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(32px) scale(0.98);
+        }
+        to {
           opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
+          transform: translateY(0) scale(1);
         }
       }
 
-      @keyframes gradient-shift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+      @keyframes fade-in-backdrop {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
 
-      /* Scrollbar */
       ::-webkit-scrollbar {
-        width: 6px;
+        width: 5px;
+        height: 5px;
       }
       ::-webkit-scrollbar-track {
         background: #050508;
@@ -58,9 +64,13 @@ export function GlobalStyles() {
         background: rgba(0,232,122,0.3);
       }
 
-      /* Input placeholder */
       ::placeholder {
         color: #40406a;
+      }
+
+      select option {
+        background: #0d0d1a;
+        color: #fff;
       }
     `}</style>
   );

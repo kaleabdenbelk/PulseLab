@@ -9,15 +9,15 @@ const steps = [
     title: "Diagnose",
     description:
       "We start with a technical growth audit — analytics, funnel mapping, competitive benchmarking, and tracking integrity. No guesswork.",
-    detail: "2–3 days",
+    detail: "2 to 3 days",
   },
   {
     number: "02",
     icon: <Wrench size={18} />,
     title: "Build",
     description:
-      "We engineer a prioritized roadmap of high-impact experiments and infrastructure: tracking, landing pages, SEO, paid systems.",
-    detail: "Sprint-based",
+      "We engineer a prioritized roadmap of high impact experiments and infrastructure: tracking, landing pages, SEO, paid systems.",
+    detail: "Sprint based",
   },
   {
     number: "03",
@@ -36,33 +36,31 @@ export function Process() {
       className="py-24 md:py-32 relative overflow-hidden"
       style={{ background: "#07070f" }}
     >
-      {/* Horizontal line accent */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(0,232,122,0.15), transparent)",
+            "linear-gradient(90deg, transparent, rgba(58,237,76,0.15), transparent)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(0,232,122,0.1), transparent)",
+            "linear-gradient(90deg, transparent, rgba(58,237,76,0.1), transparent)",
         }}
       />
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
         <AnimatedSection className="text-center mb-20">
           <span
             className="inline-block text-xs mb-4 px-3 py-1 rounded-full"
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
-              color: "#00E87A",
-              background: "rgba(0,232,122,0.08)",
-              border: "1px solid rgba(0,232,122,0.2)",
+              color: "#3AED4C",
+              background: "rgba(58,237,76,0.08)",
+              border: "1px solid rgba(58,237,76,0.2)",
               letterSpacing: "0.06em",
               textTransform: "uppercase",
             }}
@@ -85,18 +83,7 @@ export function Process() {
           </h2>
         </AnimatedSection>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-          {/* Connector line (desktop) */}
-          <div
-            className="hidden md:block absolute top-10 left-1/6 right-1/6 h-px"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(0,232,122,0.2) 25%, rgba(0,232,122,0.2) 75%, transparent 100%)",
-              top: "40px",
-            }}
-          />
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
             <AnimatedSection key={step.number} delay={i * 120} direction="up">
               <div
@@ -106,14 +93,13 @@ export function Process() {
                   border: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
-                {/* Step number + icon */}
                 <div className="flex items-center gap-3 mb-6">
                   <div
                     className="flex items-center justify-center w-10 h-10 rounded-xl"
                     style={{
-                      background: "rgba(0,232,122,0.1)",
-                      border: "1px solid rgba(0,232,122,0.2)",
-                      color: "#00E87A",
+                      background: "rgba(58,237,76,0.1)",
+                      border: "1px solid rgba(58,237,76,0.2)",
+                      color: "#3AED4C",
                     }}
                   >
                     {step.icon}
@@ -123,7 +109,7 @@ export function Process() {
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 800,
                       fontSize: "0.75rem",
-                      color: "rgba(0,232,122,0.5)",
+                      color: "rgba(58,237,76,0.5)",
                       letterSpacing: "0.1em",
                     }}
                   >
@@ -157,16 +143,15 @@ export function Process() {
                   {step.description}
                 </p>
 
-                {/* Detail chip */}
                 <div className="mt-6">
                   <span
                     className="text-xs px-2 py-1 rounded-md"
                     style={{
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 600,
-                      color: "#00E87A",
-                      background: "rgba(0,232,122,0.08)",
-                      border: "1px solid rgba(0,232,122,0.15)",
+                      color: "#3AED4C",
+                      background: "rgba(58,237,76,0.08)",
+                      border: "1px solid rgba(58,237,76,0.15)",
                     }}
                   >
                     {step.detail}

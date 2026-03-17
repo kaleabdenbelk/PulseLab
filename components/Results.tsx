@@ -42,14 +42,21 @@ function Metric({
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setActive(true); obs.disconnect(); } },
+      ([e]) => {
+        if (e.isIntersecting) {
+          setActive(true);
+          obs.disconnect();
+        }
+      },
       { threshold: 0.3 }
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
-  const displayValue = Number.isInteger(value) ? Math.floor(count) : count.toFixed(1);
+  const displayValue = Number.isInteger(value)
+    ? Math.floor(count)
+    : count.toFixed(1);
 
   return (
     <AnimatedSection delay={index * 100} direction="up">
@@ -72,9 +79,9 @@ function Metric({
             marginBottom: "8px",
           }}
         >
-          {prefix && <span style={{ color: "#00E87A" }}>{prefix}</span>}
+          {prefix && <span style={{ color: "#3AED4C" }}>{prefix}</span>}
           {displayValue}
-          {suffix && <span style={{ color: "#00E87A" }}>{suffix}</span>}
+          {suffix && <span style={{ color: "#3AED4C" }}>{suffix}</span>}
         </div>
         <p
           style={{
@@ -94,24 +101,24 @@ function Metric({
 const testimonials = [
   {
     quote:
-      "PulseLab tripled our trial-to-paid conversion in 6 weeks. They don't just consult — they build.",
-    name: "Alex M.",
-    role: "Founder, SaaS platform",
-    avatar: "AM",
+      "PulseLab tripled our trial to paid conversion in 6 weeks. They don't just consult — they build.",
+    name: "Yoseph Masresha",
+    role: "Founder, Kora Tech",
+    avatar: "YM",
   },
   {
     quote:
       "The SEO infrastructure they set up is still compounding 8 months later. ROI is extraordinary.",
-    name: "Sarah K.",
-    role: "CEO, B2B tool",
-    avatar: "SK",
+    name: "Elsabeth M.",
+    role: "CEO, Zendro Holdings",
+    avatar: "EM",
   },
   {
     quote:
       "Finally a growth partner that understands product. They think in systems, not campaigns.",
-    name: "David R.",
-    role: "Co-founder, DevTools startup",
-    avatar: "DR",
+    name: "Nahom D.",
+    role: "Co Founder, DevTools startup",
+    avatar: "ND",
   },
 ];
 
@@ -123,16 +130,15 @@ export function Results() {
       style={{ background: "#050508" }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
         <AnimatedSection className="text-center mb-16">
           <span
             className="inline-block text-xs mb-4 px-3 py-1 rounded-full"
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
-              color: "#00E87A",
-              background: "rgba(0,232,122,0.08)",
-              border: "1px solid rgba(0,232,122,0.2)",
+              color: "#3AED4C",
+              background: "rgba(58,237,76,0.08)",
+              border: "1px solid rgba(58,237,76,0.2)",
               letterSpacing: "0.06em",
               textTransform: "uppercase",
             }}
@@ -156,11 +162,26 @@ export function Results() {
           </h2>
         </AnimatedSection>
 
-        {/* Metrics grid */}
+        {/* Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-20">
-          <Metric value={3.2} label="Average MRR growth multiplier" suffix="x" index={0} />
-          <Metric value={47} label="SaaS products scaled" suffix="+" index={1} />
-          <Metric value={12} label="Revenue unlocked for clients" prefix="$" suffix="M+" index={2} />
+          <Metric
+            value={3.2}
+            label="Average MRR growth multiplier"
+            suffix="x"
+            index={0}
+          />
+          <Metric
+            value={10}
+            label="SaaS products scaled"
+            suffix="+"
+            index={1}
+          />
+          <Metric
+            value={30}
+            label="Customers acquired for clients"
+            suffix="K+"
+            index={2}
+          />
         </div>
 
         {/* Testimonials */}
@@ -174,7 +195,7 @@ export function Results() {
                   border: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
-                <Quote size={16} style={{ color: "rgba(0,232,122,0.4)" }} />
+                <Quote size={16} style={{ color: "rgba(58,237,76,0.4)" }} />
                 <p
                   style={{
                     fontFamily: "Inter, sans-serif",
@@ -189,13 +210,13 @@ export function Results() {
                 </p>
                 <div className="flex items-center gap-3 pt-2">
                   <div
-                    className="flex items-center justify-center w-9 h-9 rounded-full text-xs"
+                    className="flex items-center justify-center w-9 h-9 rounded-full text-xs flex-shrink-0"
                     style={{
-                      background: "rgba(0,232,122,0.12)",
-                      color: "#00E87A",
+                      background: "rgba(58,237,76,0.12)",
+                      color: "#3AED4C",
                       fontFamily: "Inter, sans-serif",
                       fontWeight: 700,
-                      border: "1px solid rgba(0,232,122,0.2)",
+                      border: "1px solid rgba(58,237,76,0.2)",
                     }}
                   >
                     {t.avatar}

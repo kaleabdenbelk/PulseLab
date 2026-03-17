@@ -1,9 +1,13 @@
 "use client"
 import { useEffect, useState } from "react";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useClientFlow } from "./ClientFlowContext";
+
+const trustedNames = ["Kora Tech", "Zendro Holding", "Habeshlingo", "Buna Association"];
 
 export function Hero() {
   const [visible, setVisible] = useState(false);
+  const { openModal } = useClientFlow();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 80);
@@ -37,7 +41,7 @@ export function Hero() {
           width: "600px",
           height: "600px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,232,122,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(58,237,76,0.07) 0%, transparent 70%)",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -60%)",
@@ -51,7 +55,7 @@ export function Hero() {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(90,60,255,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(90,60,255,0.06) 0%, transparent 70%)",
           bottom: "10%",
           right: "5%",
         }}
@@ -59,12 +63,12 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
-        {/* Badge */}
+        {/* Badge — no icon */}
         <div
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full mb-8"
+          className="flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"
           style={{
-            border: "1px solid rgba(0,232,122,0.25)",
-            background: "rgba(0,232,122,0.06)",
+            border: "1px solid rgba(58,237,76,0.22)",
+            background: "rgba(58,237,76,0.06)",
             opacity: visible ? 1 : 0,
             transform: visible ? "none" : "translateY(16px)",
             transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1) 100ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) 100ms",
@@ -73,14 +77,14 @@ export function Hero() {
           <span
             className="text-xs"
             style={{
-              color: "#00E87A",
+              color: "#3AED4C",
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
               letterSpacing: "0.05em",
               textTransform: "uppercase",
             }}
           >
-            Growth Partner
+            Your Trusted Growth Partner
           </span>
         </div>
 
@@ -102,7 +106,7 @@ export function Hero() {
           We grow SaaS products{" "}
           <span
             style={{
-              background: "linear-gradient(135deg, #00E87A 0%, #00bfff 100%)",
+              background: "linear-gradient(135deg, #3AED4C 0%, #00bfff 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -126,7 +130,7 @@ export function Hero() {
             transition: "opacity 0.65s cubic-bezier(0.16,1,0.3,1) 320ms, transform 0.65s cubic-bezier(0.16,1,0.3,1) 320ms",
           }}
         >
-          PulseLab is a technical growth partner for early-stage founders. We engineer acquisition, optimize conversion, and unlock compounding scale.
+          PulseLab is a trusted growth partner for early stage founders. We engineer acquisition, optimize conversion, and unlock compounding scale.
         </p>
 
         {/* CTA Buttons */}
@@ -139,28 +143,29 @@ export function Hero() {
           }}
         >
           <button
-            onClick={() => handleScroll("#contact")}
+            onClick={openModal}
             className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm group"
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
               color: "#050508",
-              background: "#00E87A",
+              background: "#3AED4C",
               transition: "all 0.2s ease",
+              border: "none",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = "0 0 32px rgba(0,232,122,0.45)";
-              e.currentTarget.style.background = "#00ff87";
+              e.currentTarget.style.boxShadow = "0 0 32px rgba(58,237,76,0.45)";
+              e.currentTarget.style.background = "#52ff60";
               e.currentTarget.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.boxShadow = "none";
-              e.currentTarget.style.background = "#00E87A";
+              e.currentTarget.style.background = "#3AED4C";
               e.currentTarget.style.transform = "none";
             }}
           >
-            Start a project
-            <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            Get in Touch
+            <ArrowRight size={16} />
           </button>
 
           <button
@@ -189,18 +194,21 @@ export function Hero() {
           </button>
         </div>
 
-        {/* Social proof strip */}
+        {/* Trusted by strip */}
         <div
-          className="flex items-center gap-6 mt-14 flex-wrap justify-center"
+          className="flex items-center gap-4 mt-14 flex-wrap justify-center"
           style={{
             opacity: visible ? 1 : 0,
             transition: "opacity 0.65s cubic-bezier(0.16,1,0.3,1) 550ms",
           }}
         >
-          <span className="text-xs" style={{ color: "#44445a", fontFamily: "Inter, sans-serif" }}>
+          <span
+            className="text-xs"
+            style={{ color: "#44445a", fontFamily: "Inter, sans-serif" }}
+          >
             Trusted by founders at
           </span>
-          {["Notion-style", "Linear-style", "Vercel-style", "Stripe-style"].map((name) => (
+          {trustedNames.map((name) => (
             <span
               key={name}
               className="text-xs px-3 py-1 rounded-md"
@@ -221,9 +229,7 @@ export function Hero() {
       {/* Bottom gradient fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent, #050508)",
-        }}
+        style={{ background: "linear-gradient(to bottom, transparent, #050508)" }}
       />
     </section>
   );

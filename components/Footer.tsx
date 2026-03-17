@@ -58,7 +58,7 @@ export function Footer() {
             0922 463 636
           </a>
           <a
-            href="https://t.me/pulselab"
+            href="https://t.me/Pulsejar"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5"

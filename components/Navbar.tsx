@@ -105,7 +105,7 @@ export function Navbar() {
             0922 463 636
           </a>
           <a
-            href="https://t.me/pulselab"
+            href="https://t.me/Pulsejar"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs transition-colors duration-200"
@@ -195,7 +195,7 @@ export function Navbar() {
               0922 463 636
             </a>
             <a
-              href="https://t.me/pulselab"
+              href="https://t.me/Pulsejar"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs"

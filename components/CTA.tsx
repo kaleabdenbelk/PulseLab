@@ -166,7 +166,7 @@ export function CTA() {
             </a>
             <span style={{ color: "#2a2a4a" }}>·</span>
             <a
-              href="https://t.me/pulselab"
+              href="https://t.me/Pulsejar"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm transition-colors duration-200"
@@ -180,7 +180,7 @@ export function CTA() {
               onMouseLeave={(e) => (e.currentTarget.style.color = "#5050a0")}
             >
               <TelegramIcon />
-              @pulselab
+              @Pulsejar
             </a>
             <span style={{ color: "#2a2a4a" }}>·</span>
             <a

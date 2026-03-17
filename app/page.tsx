@@ -6,11 +6,13 @@ import { Process } from "@/components/Process";
 import { Results } from "@/components/Results";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
+import { ClientFlowProvider } from "@/components/ClientFlowContext";
+import { ClientFlowModal } from "@/components/ClientFlowModal";
 
-export default function Home() {
+export default function App() {
   return (
-    <>
-    <GlobalStyles />
+    <ClientFlowProvider>
+      <GlobalStyles />
       <div style={{ background: "#050508", minHeight: "100vh" }}>
         <Navbar />
         <Hero />
@@ -20,6 +22,7 @@ export default function Home() {
         <CTA />
         <Footer />
       </div>
-      </>
+      <ClientFlowModal />
+    </ClientFlowProvider>
   );
 }

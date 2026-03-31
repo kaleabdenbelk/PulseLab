@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { X, ChevronLeft, CheckCircle2, Calendar, Clock, Phone } from "lucide-react";
 import { useClientFlow } from "./ClientFlowContext";
+import { Dialog, DialogContent, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 
 function getNextDays(count: number): Date[] {
   const days: Date[] = [];
@@ -129,7 +130,7 @@ function FocusTextarea({
 }
 
 export function ClientFlowModal() {
-  const { isOpen, closeModal } = useClientFlow();
+  const { isOpen, closeModal, openModal } = useClientFlow();
 
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
@@ -146,7 +147,6 @@ export function ClientFlowModal() {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
       setStep(1);
       setName("");
       setEmail("");
@@ -157,15 +157,8 @@ export function ClientFlowModal() {
       setHelpWith([]);
       setLink("");
       setChallenge("");
-    } else {
-      document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isOpen]);
-
-  if (!isOpen) return null;
 
   const toggleHelp = (item: string) => {
     setHelpWith((prev) =>
@@ -184,26 +177,20 @@ export function ClientFlowModal() {
   };
 
   return (
-    <div
-      className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-0 sm:p-4"
-      style={{
-        background: "rgba(0,0,0,0.75)",
-        backdropFilter: "blur(10px)",
-        animation: "fade-in-backdrop 0.25s ease",
-      }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) closeModal();
-      }}
-    >
-      <div
-        className="w-full sm:max-w-lg rounded-t-3xl sm:rounded-2xl overflow-hidden flex flex-col"
+    <Dialog open={isOpen} onOpenChange={(val) => (val ? openModal() : closeModal())}>
+      <DialogContent 
+        showCloseButton={false}
+        aria-describedby={undefined}
+        className="w-full sm:max-w-lg p-0 rounded-t-3xl sm:rounded-2xl overflow-hidden flex flex-col max-h-[92vh] text-[#fff]"
         style={{
           background: "#0d0d1a",
           border: "1px solid rgba(255,255,255,0.1)",
-          maxHeight: "92vh",
           animation: "modal-slide-up 0.35s cubic-bezier(0.16,1,0.3,1)",
         }}
       >
+        <DialogHeader className="sr-only">
+          <DialogTitle>Book a Call</DialogTitle>
+        </DialogHeader>
         {/* Header */}
         <div
           className="flex items-center justify-between px-6 py-4 flex-shrink-0"
@@ -290,7 +277,7 @@ export function ClientFlowModal() {
         )}
 
         {/* Scrollable content */}
-        <div className="overflow-y-auto flex-1 px-6 py-6">
+        <div className="overflow-y-auto flex-1 px-6 py-6" style={{ maxHeight: "75vh" }}>
           {/* ── STEP 1 ── */}
           {step === 1 && (
             <form onSubmit={handleStep1Submit} className="flex flex-col gap-5">
@@ -323,7 +310,7 @@ export function ClientFlowModal() {
                 >
                   <Calendar size={13} /> Select a date *
                 </label>
-                <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
+                <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
                   {days.map((d, i) => {
                     const isSelected =
                       selectedDate?.toDateString() === d.toDateString();
@@ -511,18 +498,8 @@ export function ClientFlowModal() {
                     value={building}
                     onChange={(e) => setBuilding(e.target.value)}
                     required
-                    style={{
-                      width: "100%",
-                      background: "transparent",
-                      border: "none",
-                      padding: "10px 14px",
-                      color: building ? "#fff" : "#40406a",
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "0.875rem",
-                      outline: "none",
-                      cursor: "pointer",
-                      appearance: "none",
-                    }}
+                    className="w-full bg-transparent border-none p-[10px_14px] font-['Inter',_sans-serif] text-[0.875rem] outline-none cursor-pointer appearance-none"
+                    style={{ color: building ? "#fff" : "#40406a" }}
                   >
                     <option value="" disabled style={{ background: "#0d0d1a" }}>
                       Select an option
@@ -767,7 +744,7 @@ export function ClientFlowModal() {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

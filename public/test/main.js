@@ -259,12 +259,62 @@ prevBtn.addEventListener('click', () => {
 });
 
 // Submit
-bookingForm.addEventListener('submit', (e) => {
+bookingForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!validatePage2()) return;
-  // In real use, send data to backend here
-  showPage(3);
-  modal.querySelector('.modal-box').scrollTop = 0;
+
+  const submitBtn = document.getElementById('submit-booking');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  // Collect all form data
+  const helpValues = Array.from(
+    document.querySelectorAll('#help-options input:checked')
+  ).map(el => el.value).join(', ');
+
+  const payload = {
+    name:      document.getElementById('field-name').value.trim(),
+    email:     document.getElementById('field-email').value.trim(),
+    phone:     document.getElementById('field-phone').value.trim(),
+    date:      document.getElementById('field-date').value,
+    time:      document.getElementById('field-time').value,
+    company:   document.getElementById('field-company').value.trim(),
+    building:  document.getElementById('field-building').value.trim(),
+    help:      helpValues,
+    website:   document.getElementById('field-website').value.trim(),
+    stage:     document.getElementById('field-stage').value,
+    challenge: document.getElementById('field-challenge').value.trim(),
+    budget:    document.getElementById('field-budget').value,
+    heard:     document.getElementById('field-heard').value,
+  };
+
+  try {
+    const res = await fetch('/api/book-call', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) throw new Error('Server error');
+
+    showPage(3);
+    modal.querySelector('.modal-box').scrollTop = 0;
+    bookingForm.reset();
+  } catch (err) {
+    console.error('Booking failed:', err);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Request';
+    // Show a friendly inline error
+    let errMsg = document.getElementById('booking-error');
+    if (!errMsg) {
+      errMsg = document.createElement('p');
+      errMsg.id = 'booking-error';
+      errMsg.style.cssText = 'color:#ef4444;font-size:0.875rem;margin-top:0.5rem;text-align:center;';
+      submitBtn.parentElement.appendChild(errMsg);
+    }
+    errMsg.textContent = 'Something went wrong. Please try again or contact us directly.';
+    setTimeout(() => { if (errMsg) errMsg.textContent = ''; }, 5000);
+  }
 });
 
 // Shake animation via CSS

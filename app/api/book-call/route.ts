@@ -40,23 +40,26 @@ async function sendTelegramAlert(booking: Record<string, string>) {
   // Support multiple recipients as a comma-separated list
   const chatIds = chatIdEnv.split(',').map(id => id.trim()).filter(Boolean);
 
-  const message = `
-🔔 *New Call Booking!*
+  // Escape < > & to prevent HTML injection issues
+  const e = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-👤 *Name:* ${booking.name}
-📧 *Email:* ${booking.email}
-📱 *Phone:* ${booking.phone || 'N/A'}
-📅 *Date:* ${booking.date} at ${booking.time}
-
-🏢 *Company:* ${booking.company}
-🚀 *Building:* ${booking.building}
-📊 *Stage:* ${booking.stage || 'N/A'}
-💰 *Budget:* ${booking.budget || 'N/A'}
-🆘 *Challenge:* ${booking.challenge}
-🔧 *Help needed:* ${booking.help || 'N/A'}
-🌐 *Website:* ${booking.website || 'N/A'}
-📣 *Heard via:* ${booking.heard || 'N/A'}
-  `.trim();
+  const message = [
+    '🔔 <b>New Call Booking!</b>',
+    '',
+    `👤 <b>Name:</b> ${e(booking.name)}`,
+    `📧 <b>Email:</b> ${e(booking.email)}`,
+    `📱 <b>Phone:</b> ${e(booking.phone || 'N/A')}`,
+    `📅 <b>Date:</b> ${e(booking.date)} at ${e(booking.time)}`,
+    '',
+    `🏢 <b>Company:</b> ${e(booking.company)}`,
+    `🚀 <b>Building:</b> ${e(booking.building)}`,
+    `📊 <b>Stage:</b> ${e(booking.stage || 'N/A')}`,
+    `💰 <b>Budget:</b> ${e(booking.budget || 'N/A')}`,
+    `🆘 <b>Challenge:</b> ${e(booking.challenge)}`,
+    `🔧 <b>Help needed:</b> ${e(booking.help || 'N/A')}`,
+    `🌐 <b>Website:</b> ${e(booking.website || 'N/A')}`,
+    `📣 <b>Heard via:</b> ${e(booking.heard || 'N/A')}`,
+  ].join('\n');
 
   // Send to all recipients in parallel
   await Promise.all(chatIds.map(async (chatId) => {
@@ -64,7 +67,7 @@ async function sendTelegramAlert(booking: Record<string, string>) {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'Markdown' }),
+      body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'HTML' }),
     });
     const data = await res.json();
     console.log(`[Telegram] ${chatId} → status: ${res.status}, ok: ${data.ok}`);
@@ -74,6 +77,7 @@ async function sendTelegramAlert(booking: Record<string, string>) {
       console.log(`[Telegram] ✅ ${chatId} — message sent!`);
     }
   }));
+
 }
 
 export async function POST(req: Request) {

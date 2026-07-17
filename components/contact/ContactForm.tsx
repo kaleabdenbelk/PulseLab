@@ -17,12 +17,11 @@ export default function ContactForm() {
     btn.innerHTML = CONTACT.form.sendingText;
 
     try {
-      const res = await fetch("/", {
+      const data = Object.fromEntries(new FormData(form).entries());
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(
-          Array.from(new FormData(form).entries()).map(([k, v]) => [k, String(v)])
-        ).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("Network");
       form.reset();
@@ -39,16 +38,12 @@ export default function ContactForm() {
 
   return (
     <form
-      action="/?submitted=true"
       aria-label="Project brief"
       className="form"
       id="brief"
-      method="POST"
       name="contact"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="hidden" name="subject" value={CONTACT.form.subject} />
 
       <p className="hp-field" aria-hidden="true">
         <label>

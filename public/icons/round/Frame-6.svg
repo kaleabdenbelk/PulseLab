@@ -1,0 +1,25 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_30_1563)">
+<mask id="mask0_30_1563" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1000">
+<path d="M1000 0H0V1000H1000V0Z" fill="white" style="fill:white;fill-opacity:1;"/>
+</mask>
+<g mask="url(#mask0_30_1563)">
+<path d="M890.5 247.89C890.64 254.41 890.17 261.05 889.02 267.75L781.53 668.03C773.05 717.73 729.97 754.07 679.55 754.07H160.75C152.33 754.07 144.18 753.07 136.4 751.2C123.76 733.52 118.54 711.59 122 689.95L229.08 291.55L229.33 290.63L229.49 289.69C232.78 270.42 242.81 252.87 257.75 240.27C272.69 227.67 291.68 220.73 311.22 220.73H829.13C852.6 220.73 874.79 230.59 890.5 247.89ZM102.08 685.64C98.8802 704.4 100.93 722.68 107.07 739.1C72.2602 717.91 51.3002 676.88 58.7602 633.21L166.26 232.93C174.74 183.23 217.82 146.88 268.24 146.88H787.04C833.03 146.88 871.08 176.58 884.92 216.7C868.93 206.4 849.84 200.37 829.13 200.37H311.22C260.89 200.37 217.88 236.64 209.41 286.26L102.08 685.64Z" fill="#999691" style="fill:#999691;fill:color(display-p3 0.6000 0.5882 0.5686);fill-opacity:1;"/>
+<path d="M537.94 280.4H353.62" stroke="#DBE875" style="stroke:#DBE875;stroke:color(display-p3 0.8588 0.9098 0.4588);stroke-opacity:1;" stroke-width="16.29" stroke-miterlimit="10"/>
+<path d="M715.581 280.4H592.641" stroke="#F7F4ED" style="stroke:#F7F4ED;stroke:color(display-p3 0.9686 0.9569 0.9294);stroke-opacity:1;" stroke-width="20.36" stroke-miterlimit="10"/>
+<path d="M361.2 362.6C361.2 362.6 426.181 362.6 504.259 362.6" stroke="#F7F4ED" style="stroke:#F7F4ED;stroke:color(display-p3 0.9686 0.9569 0.9294);stroke-opacity:1;" stroke-width="16.29" stroke-miterlimit="10"/>
+<path d="M361.2 362.6C361.2 362.6 370.394 362.6 386.02 362.6" stroke="#00544F" style="stroke:#00544F;stroke:color(display-p3 0.0000 0.3294 0.3098);stroke-opacity:1;" stroke-width="16.29" stroke-miterlimit="10"/>
+<path d="M273.16 689.56H680.86" stroke="#DBE875" style="stroke:#DBE875;stroke:color(display-p3 0.8588 0.9098 0.4588);stroke-opacity:1;" stroke-width="16.29" stroke-miterlimit="10"/>
+<path d="M68.8101 490.05H476.51" stroke="#999691" style="stroke:#999691;stroke:color(display-p3 0.6000 0.5882 0.5686);stroke-opacity:1;" stroke-width="20" stroke-miterlimit="10"/>
+<path d="M182.95 608.63C182.95 608.63 250.24 523.28 332.58 571.48C414.92 619.68 455.08 603.61 540.44 562.44C569.477 548.435 601.535 540.356 631.198 535.792" stroke="#DBE875" style="stroke:#DBE875;stroke:color(display-p3 0.8588 0.9098 0.4588);stroke-opacity:1;" stroke-width="16.29" stroke-miterlimit="10"/>
+<path d="M182.95 608.63C182.95 608.63 206.742 578.453 243.342 564.12" stroke="#00544F" style="stroke:#00544F;stroke:color(display-p3 0.0000 0.3294 0.3098);stroke-opacity:1;" stroke-width="16.29" stroke-miterlimit="10"/>
+<path d="M844.26 217.79C908.36 217.79 957.03 275.47 946.24 338.65L838.75 738.93C830.27 788.63 787.19 824.97 736.77 824.97H217.96C153.86 824.97 105.19 767.29 115.98 704.11L223.47 303.83C231.95 254.13 275.03 217.79 325.45 217.79H844.26ZM844.26 234.08H325.45C304.9 234.08 284.94 241.37 269.24 254.62C253.54 267.87 242.99 286.32 239.53 306.57L239.4 307.32L239.21 308.06L131.92 707.57C127.84 732.71 134.9 758.24 151.34 777.73C167.94 797.4 192.22 808.68 217.96 808.68H736.77C757.32 808.68 777.28 801.39 792.98 788.14C808.68 774.89 819.23 756.44 822.69 736.19L822.82 735.44L823.01 734.7L930.3 335.19C934.38 310.05 927.32 284.52 910.88 265.03C894.28 245.36 870 234.08 844.26 234.08Z" fill="#999691" style="fill:#999691;fill:color(display-p3 0.6000 0.5882 0.5686);fill-opacity:1;"/>
+<path d="M68.8101 470.24H476.51" stroke="#F7F4ED" style="stroke:#F7F4ED;stroke:color(display-p3 0.9686 0.9569 0.9294);stroke-opacity:1;" stroke-width="20.36" stroke-miterlimit="10"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_30_1563">
+<rect width="1000" height="1000" fill="white" style="fill:white;fill-opacity:1;"/>
+</clipPath>
+</defs>
+</svg>

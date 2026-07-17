@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import type { Project } from "./data";
 import { PROJECTS } from "../constants";
 
@@ -33,7 +34,8 @@ function SealSVG({ id }: { id: string }) {
   );
 }
 
-export default function ProjectCard({ project, index, total, onOpenCase }: { project: Project; index: number; total: number; onOpenCase?: (slug: string) => void }) {
+export default function ProjectCard({ project, index, total }: { project: Project; index: number; total: number }) {
+  const router = useRouter();
   const num = String(index + 1).padStart(2, "0");
   const paddedId = `ws${index}`;
 
@@ -46,11 +48,11 @@ export default function ProjectCard({ project, index, total, onOpenCase }: { pro
       tabIndex={0}
       data-cursor="view"
       aria-label={project.ariaLabel}
-      onClick={() => onOpenCase?.(project.id)}
+      onClick={() => router.push(`/case-studies/${project.id}`)}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          onOpenCase?.(project.id);
+          router.push(`/case-studies/${project.id}`);
         }
       }}
     >

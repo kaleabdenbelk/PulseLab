@@ -6,7 +6,7 @@ import ProjectCard from "./ProjectCard";
 import { projects } from "./data";
 import { EYEBROWS } from "../constants";
 
-export default function ProjectsSection({ onOpenCase }: { onOpenCase?: (slug: string) => void }) {
+export default function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -71,7 +71,6 @@ export default function ProjectsSection({ onOpenCase }: { onOpenCase?: (slug: st
             project={project}
             index={i}
             total={projects.length}
-            onOpenCase={onOpenCase}
           />
         ))}
       </div>

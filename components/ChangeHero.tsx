@@ -24,6 +24,7 @@ export default function ChangeHero() {
   const radiusY = 34;
 
   return (
+    <>
     <section className="ch-hero" id="hero">
       <div className="ch-hero-inner">
         {/* Dashed ellipse (static) */}
@@ -127,13 +128,14 @@ export default function ChangeHero() {
             Replies within 24h
           </span>
         </div>
-
-        <span className="ch-hero-meta-row ch-hero-fade" style={{ animationDelay: "1.9s" }}>
-          Trusted by founders, builders, and small teams
-        </span>
-
-        <LogoLoop />
       </div>
     </section>
+
+    <span className="ch-hero-meta-row ch-hero-fade" style={{ animationDelay: "1.9s" }}>
+      Trusted by founders, builders, and Teams
+    </span>
+
+    <LogoLoop />
+    </>
   );
 }

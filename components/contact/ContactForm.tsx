@@ -2,9 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { CONTACT } from "../constants";
+import FormDropdown from "./FormDropdown";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [service, setService] = useState("");
+  const [timeline, setTimeline] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,6 +64,10 @@ export default function ContactForm() {
         <input id="f-email" name="email" type="email" autoComplete="email" required placeholder={CONTACT.form.emailPlaceholder} />
       </div>
       <div className="row">
+        <label htmlFor="f-phone">{CONTACT.form.phoneLabel}</label>
+        <input id="f-phone" name="phone" type="tel" autoComplete="tel" placeholder={CONTACT.form.phonePlaceholder} />
+      </div>
+      <div className="row">
         <label htmlFor="f-company">{CONTACT.form.companyLabel}</label>
         <input id="f-company" name="company" autoComplete="organization" placeholder={CONTACT.form.companyPlaceholder} />
       </div>
@@ -68,14 +75,22 @@ export default function ContactForm() {
         <label htmlFor="f-budget">{CONTACT.form.budgetLabel}</label>
         <input id="f-budget" name="budget" placeholder={CONTACT.form.budgetPlaceholder} />
       </div>
-      <div className="row">
-        <label htmlFor="f-service">{CONTACT.form.serviceLabel}</label>
-        <input id="f-service" name="service" placeholder={CONTACT.form.servicePlaceholder} />
-      </div>
-      <div className="row">
-        <label htmlFor="f-timeline">{CONTACT.form.timelineLabel}</label>
-        <input id="f-timeline" name="timeline" placeholder={CONTACT.form.timelinePlaceholder} />
-      </div>
+      <FormDropdown
+        name="service"
+        label={CONTACT.form.serviceLabel}
+        placeholder={CONTACT.form.servicePlaceholder}
+        options={CONTACT.form.serviceOptions}
+        value={service}
+        onChange={setService}
+      />
+      <FormDropdown
+        name="timeline"
+        label={CONTACT.form.timelineLabel}
+        placeholder={CONTACT.form.timelinePlaceholder}
+        options={CONTACT.form.timelineOptions}
+        value={timeline}
+        onChange={setTimeline}
+      />
       <div className="row">
         <label htmlFor="f-message">{CONTACT.form.messageLabel}</label>
         <textarea

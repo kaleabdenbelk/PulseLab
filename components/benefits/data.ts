@@ -19,8 +19,8 @@ export const benefits = [
   },
   {
     id: "04",
-    title: "Real results",
-    desc: "Our work has driven 150,000+ website visits and 44,000+ community votes on a single project.",
+    title: "We move fast",
+    desc: "Speed without cutting corners is how we operate. When a project needs to move fast, we deliver without compromising quality.",
     image: "/services/08.png",
   },
   {

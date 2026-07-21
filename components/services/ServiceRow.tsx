@@ -6,6 +6,8 @@ interface ServiceRowProps {
   image: string;
   isOpen: boolean;
   onToggle: () => void;
+  retainer?: boolean;
+  retainerLabel?: string;
 }
 
 export default function ServiceRow({
@@ -16,6 +18,8 @@ export default function ServiceRow({
   image,
   isOpen,
   onToggle,
+  retainer,
+  retainerLabel,
 }: ServiceRowProps) {
   const panelId = `srv-panel-${id}`;
 
@@ -48,6 +52,7 @@ export default function ServiceRow({
                 <li key={tag}>{tag}</li>
               ))}
             </ul>
+            {retainer && <p className="srv-retainer-text">{retainerLabel}</p>}
           </div>
           <figure className="srv-fig">
             <img decoding="async" src={image} width="1254" height="898" alt="" loading="lazy" />

@@ -23,7 +23,8 @@ export const PROCESS_END = "Every project is built with your market in mind \u20
 // ── Benefits Stats ──
 export const BENEFITS_STATS = [
   { value: "150K+", label: "Website visits driven" },
-  { value: "44K+", label: "Community votes on one platform" },
+  { value: "44K+", label: "Community votes in 4 weeks" },
+  { value: "Millions", label: "Total engagements generated" },
   { value: "4", label: "Focused services" },
   { value: "24h", label: "Reply guarantee" },
 ] as const;
@@ -43,14 +44,29 @@ export const CONTACT = {
     namePlaceholder: "Abebe Kebede",
     emailLabel: "Email",
     emailPlaceholder: "abebe@company.com",
+    phoneLabel: "Phone number",
+    phonePlaceholder: "+251 - ",
     companyLabel: "Company or project name",
     companyPlaceholder: "Your startup",
     budgetLabel: "Project budget",
     budgetPlaceholder: "30,000 birr",
     serviceLabel: "Service interested in",
     servicePlaceholder: "Brand Identity, Performance Marketing\u2026",
+    serviceOptions: [
+      "Brand Identity & Strategy",
+      "Launch Strategy",
+      "Performance Marketing",
+      "Social Media Strategy & Management",
+      "Not sure yet",
+    ] as const,
     timelineLabel: "How soon do you want to start?",
     timelinePlaceholder: "Immediately / In a few weeks / Just exploring",
+    timelineOptions: [
+      "Immediately",
+      "In a few weeks",
+      "This month",
+      "Just exploring",
+    ] as const,
     messageLabel: "Tell us about your project",
     messagePlaceholder: "The shorter the better. We\u2019ll ask the rest on a call.",
     submitText: "Send brief",
@@ -63,6 +79,8 @@ export const CONTACT = {
     honeypotLabel: "Leave this empty:",
   },
 } as const;
+
+export const SERVICES_FOOTER_NOTE = "Brand identity is where we start. Ongoing marketing is where we grow together.";
 
 // ── Case Study Overlay ──
 export const CASE_STUDY = {
@@ -100,7 +118,7 @@ export const PROJECTS = {
 // ── Footer ──
 export const FOOTER = {
   status: "Open for projects \u00b7 2026",
-  headline: "Good work starts\nwith a clear brief",
+  headline: "Your market is ready. Your brand should be too.",
   headlinePeriod: ".",
   subtext: "Tell us what you\u2019re building, launching, or trying to grow. We\u2019ll help shape the right direction from day one.",
   cta: "Start a project",
@@ -113,6 +131,13 @@ export const FOOTER = {
     { label: "Testimonials", href: "#words" },
     { label: "Contact", href: "#contact" },
     { label: "FAQs", href: "#faq" },
+  ],
+  socialLinks: [
+    { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/pulsedigital.et" },
+    { label: "LinkedIn", icon: "linkedin", href: "[PLACEHOLDER: Pulse Digital LinkedIn link]" },
+    { label: "WhatsApp", icon: "whatsapp", href: "[PLACEHOLDER: wa.me/+251...]" },
+    { label: "Phone", icon: "phone", href: "[PLACEHOLDER: tel:+251...]" },
+    { label: "Email", icon: "email", href: "mailto:admin@pulsedigital.et" },
   ],
   copyright: "\u00a9 2026 \u00b7 All Rights Reserved by",
   studioName: "Pulse Digital",

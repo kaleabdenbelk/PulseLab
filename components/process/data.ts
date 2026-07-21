@@ -27,4 +27,12 @@ export const phases = [
     week: "Week 04",
     deliverables: ["Files", "Guidelines", "Assets"],
   },
+  {
+    step: "05",
+    title: "Ongoing Growth",
+    desc: "The brand is built. Now let's grow it. Ongoing marketing available.",
+    week: "Monthly",
+    deliverables: ["Monthly Ads", "Social Management",  "Retargeting"], //"Reporting",
+    optional: true,
+  },
 ] as const;

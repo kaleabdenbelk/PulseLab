@@ -21,8 +21,8 @@ export default function ProcessTimeline() {
     if (reduce) {
       timeline.style.setProperty("--fill", "1");
       timeline.style.setProperty("--pin-scale", "0");
-      setPassedSet(new Set([0, 1, 2, 3]));
-      setCurrentIdx(3);
+      setPassedSet(new Set([0, 1, 2, 3, 4]));
+      setCurrentIdx(4);
       setIsComplete(true);
       return;
     }
@@ -95,7 +95,7 @@ export default function ProcessTimeline() {
             <span className="proc-rail-base" />
             <span className="proc-rail-fill" />
             <span className="proc-rail-pin">
-              <img decoding="async" src="https://allgoodstudio.com/assets/hand-lime.png" alt="" />
+              <img decoding="async" src="/logo_circled.svg" alt="" />
             </span>
           </div>
 
@@ -109,6 +109,7 @@ export default function ProcessTimeline() {
               deliverables={phase.deliverables}
               isPassed={passedSet.has(i)}
               isCurrent={currentIdx === i}
+              optional={"optional" in phase && phase.optional}
             />
           ))}
         </ol>

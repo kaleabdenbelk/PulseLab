@@ -1,10 +1,11 @@
 const logos = [
-  { label: "Brand 01", src: "/socials/01.png" },
-  { label: "Brand 02", src: "/socials/02.png" },
-  { label: "Brand 03", src: "/socials/03.png" },
-  { label: "Brand 04", src: "/socials/04.png" },
-  { label: "Brand 05", src: "/socials/05.png" },
-  { label: "Brand 06", src: "/socials/06.png" },
+  { label: "Brand 01", src: "/socials/01.webp" },
+  { label: "Brand 02", src: "/socials/02.webp" },
+  { label: "Brand 03", src: "/socials/03.webp" },
+  { label: "Brand 04", src: "/socials/04.webp" },
+  { label: "Brand 05", src: "/socials/05.webp" },
+  { label: "Brand 06", src: "/socials/06.webp" },
+  { label: "Habeshlingo", src: "/socials/07.svg" },
 ];
 
 function LogoList({ ariaHidden }: { ariaHidden?: boolean }) {

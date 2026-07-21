@@ -19,6 +19,8 @@ export const services = [
     desc: "We don\u2019t just run ads. We build campaigns that track every birr spent and tell you exactly what it delivered.",
     tags: ["Meta Ads", "Google Ads", "Audience Research", "A/B Testing", "Retargeting", "Analytics"],
     image: "/services/03.png",
+    retainer: true,
+    retainerLabel: "Monthly retainer \u00b7 Ongoing service",
   },
   {
     id: "04",
@@ -26,6 +28,8 @@ export const services = [
     desc: "Consistent, strategic social media presence is not optional anymore. We handle the thinking and the execution.",
     tags: ["Platform Strategy", "Content Calendar", "Community Management", "Growth", "Reporting"],
     image: "/services/04.png",
+    retainer: true,
+    retainerLabel: "Monthly retainer \u00b7 Ongoing service",
   },
 ] as const;
 

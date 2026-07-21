@@ -223,11 +223,6 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
         <div className="ai-grid">
           {cs.ai.cards.map((card, i) => (
             <div key={i} className="ai-card" style={{ ["--i" as string]: i }}>
-              <span className="sparkle">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2 13.6 7c.4 1.2 1.2 2 2.4 2.4L21 11c.4.2.4.8 0 1L16 13.6c-1.2.4-2 1.2-2.4 2.4L12 21c-.2.4-.8.4-1 0L9.4 16c-.4-1.2-1.2-2-2.4-2.4L2 12c-.4-.2-.4-.8 0-1L7 9.4c1.2-.4 2-1.2 2.4-2.4L11 2c.2-.4.8-.4 1 0Z" />
-                </svg>
-              </span>
               <h4>{card.h}</h4>
               <p>{card.p}</p>
             </div>

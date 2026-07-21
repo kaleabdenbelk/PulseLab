@@ -6,6 +6,7 @@ interface ProcessRowProps {
   deliverables: readonly string[];
   isPassed: boolean;
   isCurrent: boolean;
+  optional?: boolean;
 }
 
 export default function ProcessRow({
@@ -16,10 +17,12 @@ export default function ProcessRow({
   deliverables,
   isPassed,
   isCurrent,
+  optional,
 }: ProcessRowProps) {
   const classes = ["proc-row"];
   if (isPassed) classes.push("is-passed");
   if (isCurrent) classes.push("is-current");
+  if (optional) classes.push("is-optional");
 
   return (
     <li className={classes.join(" ")} data-step={step}>
@@ -29,6 +32,7 @@ export default function ProcessRow({
       <span className="proc-num">{step}</span>
       <div className="proc-content">
         <h3 className="proc-title">{title}</h3>
+        {optional && <span className="proc-optional-badge">Optional</span>}
         <p className="proc-desc">{desc}</p>
       </div>
       <div className="proc-meta">

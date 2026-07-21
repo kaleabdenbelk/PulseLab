@@ -100,8 +100,12 @@ export default function TestimonialsSection() {
                 key={i}
                 className={`wsec-auth${activeIndex === i ? " is-active" : ""}`}
               >
-                <div className="wsec-ava wsec-ava--mono" aria-hidden="true">
-                  {t.author.initials}
+                <div
+                  className={`wsec-ava${t.author.photo ? "" : " wsec-ava--mono"}`}
+                  aria-hidden="true"
+                  style={t.author.photo ? { backgroundImage: `url('${t.author.photo}')` } : undefined}
+                >
+                  {!t.author.photo && t.author.initials}
                 </div>
                 <div className="wsec-aMeta">
                   <div className="wsec-aName">
@@ -117,16 +121,10 @@ export default function TestimonialsSection() {
                       href={t.author.tiktok}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Verified on TikTok"
+                      aria-label="View on TikTok"
                     >
-                      <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                        <path
-                          d="M2 6.5L4.7 9.2L10 3.5"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="14" height="14">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.16z" />
                       </svg>
                     </a>
                   </div>

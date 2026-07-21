@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import type { Project } from "./data";
 import { PROJECTS } from "../constants";
 
@@ -24,9 +25,11 @@ function SealSVG({ id }: { id: string }) {
         </g>
       </svg>
       <span className="ag-seal__mark">
-        <img
-          decoding="async"
+        <Image
           src="/circle.svg"
+          width={24}
+          height={24}
+          unoptimized
           alt=""
         />
       </span>
@@ -72,13 +75,12 @@ export default function ProjectCard({ project, index, total }: { project: Projec
       </div>
 
       <div className="ws-stage">
-        <img
-          decoding="async"
+        <Image
           src={project.image}
           width={1672}
           height={941}
+          unoptimized
           alt={`${project.name} — case study preview`}
-          loading="lazy"
         />
         <span className="ws-pill">{project.pill}</span>
         <span className="ws-year">{project.year}</span>

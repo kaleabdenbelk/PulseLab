@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { services } from "./data";
 import ServiceRow from "./ServiceRow";
-import { EYEBROWS } from "../constants";
+import { EYEBROWS, SERVICES_FOOTER_NOTE } from "../constants";
 
 export default function ServicesSection() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -25,9 +25,12 @@ export default function ServicesSection() {
             image={srv.image}
             isOpen={openIndex === i}
             onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+            retainer={"retainer" in srv && srv.retainer ? true : undefined}
+            retainerLabel={"retainerLabel" in srv ? (srv.retainerLabel as string) : undefined}
           />
         ))}
       </div>
+      <p className="srv-footer-note">{SERVICES_FOOTER_NOTE}</p>
     </section>
   );
 }

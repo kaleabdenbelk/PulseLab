@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { CASES, CASE_ORDER, type CaseStudy } from "./data";
 import { CASE_STUDY } from "../constants";
 
@@ -152,7 +153,7 @@ export default function CaseStudyOverlay({
 
       {/* Hero */}
       <div className="cs-hero">
-        <img decoding="async" src={cs.images.hero} alt={cs.name} />
+        <Image src={cs.images.hero} width={1672} height={941} unoptimized alt={cs.name} />
         <div className="cs-hero-text">
           <span className="industry-pill">{cs.industry}</span>
           <h2 dangerouslySetInnerHTML={{ __html: cs.nameHtml }} />
@@ -265,10 +266,10 @@ export default function CaseStudyOverlay({
       {/* Showcase images */}
       <section className="cs-sec cs-showcase">
         <div className="spread">
-          <img decoding="async" src={cs.images.left} alt="" loading="lazy" />
-          <img decoding="async" src={cs.images.right} alt="" loading="lazy" />
+          <Image src={cs.images.left} width={836} height={470} unoptimized alt="" />
+          <Image src={cs.images.right} width={836} height={470} unoptimized alt="" />
         </div>
-        <img className="full" decoding="async" src={cs.images.wide} alt="" loading="lazy" />
+        <Image className="full" src={cs.images.wide} width={1672} height={941} unoptimized alt="" />
       </section>
 
       {/* Stats */}
@@ -310,13 +311,12 @@ export default function CaseStudyOverlay({
           {related.map((r, i) => (
             <a key={r.slug} className="rcard" style={{ ["--i" as string]: i }}>
               <div className="thumb">
-                <img
-                  decoding="async"
+                <Image
                   src={r.thumb}
-                  width="1672"
-                  height="941"
+                  width={1672}
+                  height={941}
+                  unoptimized
                   alt={r.name}
-                  loading="lazy"
                 />
                 <span className="open-cue">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">

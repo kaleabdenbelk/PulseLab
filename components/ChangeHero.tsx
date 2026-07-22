@@ -50,7 +50,7 @@ export default function ChangeHero() {
           {ICONS.map((src, i) => {
             const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
             const depth = Math.round((0.85 + 0.35 * ((Math.sin(angle) + 1) / 2)) * 10000) / 10000;
-            const isExtra = i % 2 === 1;
+            const isExtra = i % 3 === 2;
             const delay = (i / count) * -60;
             return (
               <div

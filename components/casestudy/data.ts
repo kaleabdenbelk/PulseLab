@@ -37,7 +37,7 @@ export const CASES: Record<string, CaseStudy> = {
     industry: "Culture & Community",
     services: "Brand Implementation, Platform Design, Community Marketing, Front-End Development",
     timeline: "1.5 months",
-    role: "Solo \u2014 Strategy, Brand, Design, Development",
+    role: "Strategy, Brand, Design, Development",
     kicker: "A viral TikTok moment turned into Ethiopia\u2019s first organized digital coffee community.",
     intro:
       "Buna Mahber started as a humorous TikTok trend celebrating Ethiopian coffee culture and went viral almost immediately. Behind the momentum there was nothing \u2014 no brand, no digital home, no system for organizing the thousands of people who wanted to be part of it. We saw the opportunity independently, built the entire platform before being approached, then reached out to the movement\u2019s initiator who recognized what it could become and began an <em>ongoing collaboration.</em>",
@@ -73,12 +73,12 @@ export const CASES: Record<string, CaseStudy> = {
       { num: "150<em>K+</em>", label: "Website visits", p: "Organic traffic driven entirely through community engagement and content creator recognition during the campaign period." },
       { num: "44<em>K+</em>", label: "Community votes", p: "Votes submitted through the election platform \u2014 the clearest proof of genuine community engagement and platform trust." },
       { num: "1.5", label: "Months to launch", p: "From blank canvas to live platform \u2014 designed, built, and deployed in six weeks with continuous iteration after launch." },
-      { num: "0\u2192\u221e", label: "Digital presence", p: "From zero digital infrastructure to a fully operational community platform with membership, elections, sponsors, and ongoing feature development." },
+      { num: "1<em>M+</em>", label: "Digital presence", p: "From zero digital infrastructure to a fully operational community platform with membership, elections, sponsors, and ongoing feature development." },
     ],
     quote: {
-      q: "What Amos built for Buna Mahber wasn\u2019t just a website \u2014 it was the foundation that turned a viral moment into a <em>real community.</em> The platform handled thousands of members, tens of thousands of votes, and gave us a digital home we didn\u2019t know we needed until we saw it. The quality and speed of execution was unlike anything I expected.",
+      q: "What Pulse built for Buna Mahber wasn\u2019t just a website \u2014 it was the foundation that turned a viral moment into a <em>real community.</em> The platform handled thousands of members, tens of thousands of votes, and gave us a digital home we didn\u2019t know we needed until we saw it. The quality and speed of execution was unlike anything I expected.",
       author: "\u127b\u1209",
-      role: "Buna Mahber \u00b7 \u1261\u1293 \u130e\u130a\u12ce\u127d \u121b\u200b\u1215\u1260\u122d",
+      role: "Buna Mahber \u00b7 \u1261\u1293 ጠጪዎች \u121b\u200b\u1215\u1260\u122d",
       avatar: "",
     },
     images: {

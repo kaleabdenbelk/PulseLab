@@ -1,7 +1,7 @@
 export const faqs = [
   {
     question: "How much does a project cost?",
-    answer: `Brand identity packages start from <strong>15,000 ETB</strong>. Full brand and marketing packages are priced based on scope. You get a fixed price before we start \u2014 no surprises and no scope creep.`,
+    answer: `Brand identity packages start from <strong>20,000 ETB</strong>. Full brand and marketing packages are priced based on scope. You get a fixed price before we start \u2014 no surprises and no scope creep.`,
   },
   {
     question: "How long does a project take?",

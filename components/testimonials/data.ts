@@ -6,7 +6,7 @@ export const testimonials = [
       tiktok: "https://vt.tiktok.com/ZSX9cWR6p/",
       initials: "\u127b\u1209",
       photo: "/challu.jpg",
-      role: "Buna Mahber \u00b7 \u1261\u1293 \u130e\u130a\u12ce\u127d \u121b\u200b\u1215\u1260\u122d",
+      role: "Buna Mahber \u00b7 \u1261\u1293 ጠጪዎች \u121b\u200b\u1215\u1260\u122d",
       tag: "Community Platform \u00b7 Digital Brand \u00b7 2026",
     },
   },

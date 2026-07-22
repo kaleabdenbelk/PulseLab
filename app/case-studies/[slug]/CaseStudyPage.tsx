@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CASES, CASE_ORDER } from "@/components/casestudy/data";
 import { CASE_STUDY } from "@/components/constants";
+import Image from "next/image";
 
 export default function CaseStudyPage({ slug }: { slug: string }) {
   const router = useRouter();
@@ -251,6 +252,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
       </section>
 
       {/* Testimonial */}
+      {cs.quote.author !== "Reference on request" && (
       <section className="cs-sec cs-testimonial">
         <blockquote dangerouslySetInnerHTML={{ __html: `\u201C${cs.quote.q}\u201D` }} />
         <div className="qmeta">
@@ -266,6 +268,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* Related work */}
       <section className="cs-related">
@@ -278,7 +281,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
           {related.map((r, i) => (
             <Link key={r.slug} href={`/case-studies/${r.slug}`} className="rcard" style={{ ["--i" as string]: i }}>
               <div className="thumb">
-                <img
+                <Image
                   decoding="async"
                   src={r.thumb}
                   width="1672"
@@ -286,11 +289,11 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
                   alt={r.name}
                   loading="lazy"
                 />
-                <span className="open-cue">
+                {/* <span className="open-cue">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                     <path d="M7 17 17 7M9 7h8v8" />
                   </svg>
-                </span>
+                </span> */}
               </div>
               <span className="pill">{r.industry}</span>
               <h3 dangerouslySetInnerHTML={{ __html: r.nameHtml }} />

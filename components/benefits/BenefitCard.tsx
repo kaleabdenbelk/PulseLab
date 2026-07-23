@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface BenefitCardProps {
   id: string;
@@ -54,13 +55,13 @@ export default function BenefitCard({
       style={{ ["--i" as string]: index }}
     >
       <figure className="ben-fig">
-        <img
+        <Image
           src={image}
           alt=""
           width="800"
           height="450"
+          sizes="(max-width: 768px) 100vw, 50vw"
           loading="lazy"
-          decoding="async"
           aria-hidden="true"
         />
       </figure>

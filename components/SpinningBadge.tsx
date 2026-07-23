@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SpinningBadge() {
   return (
     <div className="spin-badge" aria-hidden="true">
@@ -21,10 +23,11 @@ export default function SpinningBadge() {
         </svg>
       </div>
       <div className="spin-badge__core">
-        <img
-          decoding="async"
+        <Image
           src="https://allgoodstudio.com/assets/ai-magic.svg"
           alt=""
+          width="80"
+          height="80"
         />
       </div>
     </div>

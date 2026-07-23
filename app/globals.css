@@ -301,14 +301,14 @@
   .ch-hero-inner {
     position: relative;
     aspect-ratio: 1;
-    width: min(92vmin, 900px);
+    width: min(80vmin, 780px);
   }
 
   .ch-hero-below {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 42px;
+    gap: 16px;
     width: 100%;
     max-width: 900px;
     margin-top: -60px;
@@ -551,7 +551,7 @@
     text-transform: uppercase;
     color: #646159;
     font-weight: 500;
-    margin: 48px auto 0;
+    margin: 16px auto 0;
     z-index: 3;
     position: relative;
   }
@@ -559,12 +559,12 @@
   /* Responsive: hide extra icons on mobile */
   @media (max-width: 571px) {
     .ch-hero {
-      height: 100dvh;
-      min-height: 0;
+      height: auto;
+      min-height: 100dvh;
       justify-content: center;
       padding: 0 16px;
-      padding-top: calc(80px + env(safe-area-inset-top, 0px));
-      padding-bottom: 100px;
+      padding-top: calc(40px + env(safe-area-inset-top, 0px));
+      padding-bottom: 24px;
     }
 
     .ch-orbit-icon-img {
@@ -576,7 +576,7 @@
       width: min(75vmin, 400px);
       flex: 1 1 0;
       min-height: 0;
-      margin-top: 60px;
+      margin-top: 0;
     }
 
     .ch-orbit-ring {
@@ -590,7 +590,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 0px;
       padding: 0 20px;
       height: 100%;
     }
@@ -618,10 +618,6 @@
     }
 
     .ch-hero-below {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
       flex-shrink: 0;
       padding-bottom: 0;
     }
@@ -643,12 +639,12 @@
       text-transform: uppercase;
       color: #646159;
       font-weight: 500;
-      margin: 48px auto 0;
+      margin: 12px auto 0;
       padding: 0 16px;
     }
 
     .ch-hero + .ch-hero-meta-row + .logoloop {
-      margin-top: 18px;
+      margin-top: 10px;
     }
 
     .logoloop {

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ServiceRowProps {
   id: string;
   title: string;
@@ -55,7 +57,7 @@ export default function ServiceRow({
             {retainer && <p className="srv-retainer-text">{retainerLabel}</p>}
           </div>
           <figure className="srv-fig">
-            <img decoding="async" src={image} width="1254" height="898" alt="" loading="lazy" />
+            <Image src={image} width="1254" height="898" sizes="(max-width: 768px) 100vw, 50vw" alt="" loading="lazy" />
           </figure>
         </div>
       </div>

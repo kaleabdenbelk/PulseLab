@@ -126,7 +126,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
 
       {/* Hero */}
       <div className="cs-hero">
-        <img decoding="async" src={cs.images.hero} alt={cs.name} />
+        <Image src={cs.images.hero} alt={cs.name} fill priority sizes="100vw" style={{ objectFit: "cover" }} />
         <div className="cs-hero-text">
           <span className="industry-pill">{cs.industry}</span>
           <h2 dangerouslySetInnerHTML={{ __html: cs.nameHtml }} />
@@ -234,10 +234,10 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
       {/* Showcase images */}
       <section className="cs-sec cs-showcase">
         <div className="spread">
-          <img decoding="async" src={cs.images.left} alt="" loading="lazy" />
-          <img decoding="async" src={cs.images.right} alt="" loading="lazy" />
+          <Image src={cs.images.left} alt="" width="1672" height="941" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" />
+          <Image src={cs.images.right} alt="" width="1672" height="941" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" />
         </div>
-        <img className="full" decoding="async" src={cs.images.wide} alt="" loading="lazy" />
+        <Image className="full" src={cs.images.wide} alt="" width="1672" height="941" sizes="100vw" loading="lazy" />
       </section>
 
       {/* Stats */}
@@ -282,10 +282,10 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
             <Link key={r.slug} href={`/case-studies/${r.slug}`} className="rcard" style={{ ["--i" as string]: i }}>
               <div className="thumb">
                 <Image
-                  decoding="async"
                   src={r.thumb}
                   width="1672"
                   height="941"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   alt={r.name}
                   loading="lazy"
                 />

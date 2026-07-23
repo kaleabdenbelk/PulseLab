@@ -79,7 +79,7 @@ export default function ProjectCard({ project, index, total }: { project: Projec
           src={project.image}
           width={1672}
           height={941}
-          unoptimized
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt={`${project.name} — case study preview`}
         />
         <span className="ws-pill">{project.pill}</span>

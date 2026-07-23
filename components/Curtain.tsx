@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { CURTAIN } from "./constants";
 
 export default function Curtain({ onDone }: { onDone: () => void }) {
@@ -26,7 +27,7 @@ export default function Curtain({ onDone }: { onDone: () => void }) {
         <span>{CURTAIN.loading}</span>
       </div>
       <div className="cl-mark">
-        <img decoding="async" src="https://allgoodstudio.com/assets/loader.webp" alt="" />
+        <Image src="https://allgoodstudio.com/assets/loader.webp" alt="" width="200" height="200" priority />
       </div>
       <div className="cl-bot">
         <span>{CURTAIN.location}</span>

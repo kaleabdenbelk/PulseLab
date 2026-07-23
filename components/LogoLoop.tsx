@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const logos = [
   { label: "Brand 01", src: "/socials/01.webp" },
   { label: "Brand 02", src: "/socials/02.webp" },
@@ -13,13 +15,14 @@ function LogoList({ ariaHidden }: { ariaHidden?: boolean }) {
     <ul className="logoloop-list" role="list" {...(ariaHidden ? { "aria-hidden": true } : {})}>
       {logos.map((logo) => (
         <li key={`${logo.label}-${ariaHidden ? "dup" : "main"}`} className="logoloop-item">
-          <img
+          <Image
             className="logoloop-logo"
             width={200}
             height={80}
             src={logo.src}
             alt={ariaHidden ? "" : logo.label}
             loading="lazy"
+            sizes="200px"
           />
         </li>
       ))}

@@ -1,8 +1,8 @@
 import { neon } from '@neondatabase/serverless';
 import { NextResponse } from 'next/server';
 
-async function ensureTable() {
-  const sql = neon(process.env.DATABASE_URL!);
+async function ensureTable(dbUrl: string) {
+  const sql = neon(dbUrl);
   await sql`
     CREATE TABLE IF NOT EXISTS contacts (
       id         SERIAL PRIMARY KEY,
@@ -24,7 +24,7 @@ async function sendTelegramAlert(contact: Record<string, string>) {
   if (!token || !chatIdEnv) return;
 
   const chatIds = chatIdEnv.split(',').map(id => id.trim()).filter(Boolean);
-  const e = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const e = (s: string) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   const message = [
     '📩 <b>New Contact Form Submission!</b>',
@@ -52,9 +52,16 @@ async function sendTelegramAlert(contact: Record<string, string>) {
 
 export async function POST(req: Request) {
   try {
-    const sql = neon(process.env.DATABASE_URL!);
-    const body = await req.json();
+    const dbUrl = process.env.DATABASE_URL;
+    if (!dbUrl) {
+      console.error('[contact] DATABASE_URL environment variable is missing.');
+      return NextResponse.json(
+        { error: 'Server configuration error: DATABASE_URL is missing' },
+        { status: 500 }
+      );
+    }
 
+    const body = await req.json();
     const { name, email, company = '', budget = '', service = '', timeline = '', message = '', 'bot-field': honeypot } = body;
 
     if (honeypot) {
@@ -65,8 +72,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 });
     }
 
-    await ensureTable();
+    await ensureTable(dbUrl);
 
+    const sql = neon(dbUrl);
     await sql`
       INSERT INTO contacts (name, email, company, budget, service, timeline, message)
       VALUES (${name}, ${email}, ${company}, ${budget}, ${service}, ${timeline}, ${message})
@@ -79,8 +87,11 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (err) {
-    console.error('[contact] Error:', err);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  } catch (err: any) {
+    console.error('[contact] Error processing submission:', err);
+    return NextResponse.json({ 
+      error: 'Internal server error', 
+      message: err?.message || String(err) 
+    }, { status: 500 });
   }
 }

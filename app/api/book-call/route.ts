@@ -2,8 +2,8 @@ import { neon } from '@neondatabase/serverless';
 import { NextResponse } from 'next/server';
 
 // Ensure the bookings table exists on first request (idempotent)
-async function ensureTable() {
-  const sql = neon(process.env.DATABASE_URL!);
+async function ensureTable(dbUrl: string) {
+  const sql = neon(dbUrl);
   await sql`
     CREATE TABLE IF NOT EXISTS bookings (
       id         SERIAL PRIMARY KEY,
@@ -41,7 +41,7 @@ async function sendTelegramAlert(booking: Record<string, string>) {
   const chatIds = chatIdEnv.split(',').map(id => id.trim()).filter(Boolean);
 
   // Escape < > & to prevent HTML injection issues
-  const e = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const e = (s: string) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   const message = [
     '🔔 <b>New Call Booking!</b>',
@@ -82,7 +82,15 @@ async function sendTelegramAlert(booking: Record<string, string>) {
 
 export async function POST(req: Request) {
   try {
-    const sql = neon(process.env.DATABASE_URL!);
+    const dbUrl = process.env.DATABASE_URL;
+    if (!dbUrl) {
+      console.error('[book-call] DATABASE_URL environment variable is missing.');
+      return NextResponse.json(
+        { error: 'Server configuration error: DATABASE_URL is missing' },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
 
     const {
@@ -98,8 +106,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    await ensureTable();
+    await ensureTable(dbUrl);
 
+    const sql = neon(dbUrl);
     await sql`
       INSERT INTO bookings
         (name, email, phone, date, time, company, building, help, website, stage, challenge, budget, heard)
@@ -117,8 +126,11 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error('[book-call] Error:', err);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ 
+      error: 'Internal server error', 
+      message: err?.message || String(err) 
+    }, { status: 500 });
   }
 }
